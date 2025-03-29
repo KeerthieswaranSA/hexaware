@@ -1,0 +1,160 @@
+using System.Diagnostics;
+namespace Classassignment_2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello, World!");
+            swap();
+            matrix();
+            day();
+            Array1();
+            Array2();
+            Array3();
+        }
+        //1. Write a C# Sharp program to swap two numbers.
+        static void swap()
+        {
+            Console.WriteLine("Enter 1st Number:");
+            int a= Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter 2nd Number:");
+            int b= Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Before swap:");
+            Console.WriteLine("value of 1st number:{0}", a);
+            Console.WriteLine("value of 1st number:{0}", b);
+            int temp = a;
+            a=b;
+            b=temp;
+            Console.WriteLine("After swap:");
+            Console.WriteLine("value of 1st number:{0}",a);
+            Console.WriteLine("value of 1st number:{0}",b);
+        }
+        //2. Write a C# program that takes a number as input and displays
+        //it four times in a row (separated by blank spaces), and then four times in the next row, with no separation.
+        //You should do it twice: Use the console. Write and use {0}.
+        static void matrix()
+        {
+            Console.WriteLine("Enter the number:");
+            int a = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    Console.Write(a + " ");
+                }
+                Console.WriteLine();
+                for (int k = 0; k < 4; k++)
+                {
+                    Console.Write(a);
+                }
+                Console.WriteLine();
+            }
+        }
+        //3.Write a C# Sharp program to read any day number as an integer and display the name of the day as a word.
+        static void day()
+        {
+            Console.WriteLine("Enter the number:");
+            int a=Convert.ToInt32(Console.ReadLine());
+            switch (a)
+            {
+                case 1:
+                    Console.WriteLine("Monday");
+                    break;
+                case 2:
+                    Console.WriteLine("Tuesday");
+                    break;
+                case 3:
+                    Console.WriteLine("Wednesday");
+                    break;
+                case 4:
+                    Console.WriteLine("Thursday");
+                    break;
+                case 5:
+                    Console.WriteLine("Friday");
+                    break;
+                case 6:
+                    Console.WriteLine("Saturday");
+                    break;
+                case 7:
+                    Console.WriteLine("Sunday");
+                    break;
+                default:
+                    Console.WriteLine("Invalid number");
+                    break;
+            }
+
+        }
+
+        //ARRAY
+        //1.Write a  Program to assign integer values to an array  and then print the following
+        static void Array1()
+        {
+            int[] a = { 10, 20, 30, 40, 50 };
+            foreach (int i in a)
+            {
+                Console.Write(i + " ");
+            }
+            Console.WriteLine();
+            //a.Average value of Array elements
+            Console.WriteLine("Average value of the array is {0}",a.Average());
+            //b.Minimum and Maximum value in an array
+            Console.WriteLine("Minimum value in an array is:{0}", a.Min());
+            Console.WriteLine("Maximum value in an array is:{0}", a.Max());
+        }
+        //       2.	Write a program in C# to accept ten marks and display the following
+	    //a.	Total
+	    //b.	Average
+	    //c.	Minimum marks
+	    //d.	Maximum marks
+	    //e.	Display marks in ascending order
+	    //f.	Display marks in descending order
+        static void Array2()
+        {
+            int[] a = new int[10];
+            Console.WriteLine("Enter the marks:");
+            for (int i = 0; i < a.Length; i++)
+            {
+                a[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            Console.WriteLine("Total Marks:{0}", a.Sum());
+            Console.WriteLine("Average Marks:{0}", a.Average());
+            Console.WriteLine("Minimum Mark:{0}",a.Min());  
+            Console.WriteLine("Maximum Marks:{0}",a.Max());
+            Console.WriteLine("Mark in ascending order:");
+            Array.Sort(a);
+            foreach (int i in a)
+            {
+                Console.Write(i + " ");
+            }
+            Console.WriteLine();
+            Console.WriteLine("Mark in descending order:");
+            for(int i= a.Length-1;i>=0;i--)
+            {
+                Console.Write(a[i] + " ");
+            }
+            Console.WriteLine();
+        }
+        // 3.  Write a C# Sharp program to copy the elements of one array into another array.(do not use any inbuilt functions)
+        static void Array3()
+        {
+            int[] a = {5,15,25,35,45,55};
+            Console.WriteLine("Elements in Original Array a:");
+            foreach (int i in a)
+            {
+                Console.Write(i + " ");
+            }
+            Console.WriteLine();
+            int[] CopiedArray = new int[a.Length];
+            for (int i = 0; i < a.Length; i++)
+            {
+                CopiedArray[i] = a[i];
+            }
+            Console.WriteLine("Elements in Copied Array:");
+            foreach (int i in CopiedArray)
+            {
+                Console.Write(i + " ");
+            }
+        }
+    }
+}
