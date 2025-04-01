@@ -1,0 +1,28 @@
+namespace Pratice
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            distance d1;
+            distance dist = new distance();
+            d1= new distance();
+            d1.dist = 10;
+            Console.WriteLine("Before Increment:{0}",d1.dist);
+            d1++;
+            Console.WriteLine("After Increament:{0}",d1.dist);
+
+        }
+        class distance
+        {
+            public int dist;
+
+            public static distance operator ++( distance a)
+            {
+                a.dist++;
+                return a;
+            }
+        }
+    }
+}
+_o
