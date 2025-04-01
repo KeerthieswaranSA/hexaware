@@ -1,0 +1,82 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ClassAssignment_3
+{
+
+    class Student
+    {
+        //rollno, name, class, Semester, branch, int [] marks=new int marks [5](marks of 5 subjects )
+        protected int rollno;
+        protected string name;
+        protected string Class;
+        protected string Semester;
+        protected string branch;
+        
+        public Student(int rollno,string name,string Class,string Semester,string branch) {
+            this.rollno = rollno;
+            this.name = name;
+            this.Class = Class;
+            this.Semester = Semester;
+            this.branch = branch;
+           
+        }
+       
+    }
+    class Marks: Student
+    {
+        public int[] marks;
+        public Marks(int rollno, string name, string Class, string Semester, string branch) : base(rollno, name, Class, Semester, branch) 
+        {
+            this.marks = new int[5];
+        }
+        public void getmarks()
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine("Enter the mark of {0} subject:", i + 1);
+                marks[i] = Convert.ToInt32(Console.ReadLine());
+            }
+        }
+        public void displayresult()
+        {
+            int flag = 0;
+            foreach (int i in marks)
+            {
+                if (i < 35)
+                {
+                    flag = 1;
+                }
+            }
+            float average_mark = marks.Sum()/5;
+            if ((flag!=0) || (average_mark < 50))
+                Console.WriteLine("Result: Failed");
+            else
+                Console.WriteLine("Result: Passed");
+        }
+        public void DisplayData()
+        {
+            Console.WriteLine("====================================");
+            Console.WriteLine("Name: " + name);
+            Console.WriteLine("Roll Number: "+rollno);
+            Console.WriteLine("Class: " + Class);
+            Console.WriteLine("Semester: "+Semester);
+            Console.WriteLine("Branch: "+branch);
+            Console.WriteLine("Marks:"+string.Join(" ", marks));
+        }
+
+    }
+    class Student_Details()
+    {
+        static void Main(string[] args)
+        {
+            Marks mk = new Marks(101, "Keerthish", "IV", "8", "ECE");
+            mk.getmarks();
+            mk.displayresult();
+            mk.DisplayData();
+        }
+    }
+}

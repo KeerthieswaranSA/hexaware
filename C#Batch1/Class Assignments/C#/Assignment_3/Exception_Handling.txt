@@ -1,0 +1,62 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ClassAssignment_3
+{
+    class InsufficientBalanceException : ApplicationException
+    {
+        public InsufficientBalanceException(string msg) : base(msg) { }
+    }
+    class BankAccount
+    {
+        public string AccountHolder { get; set; }
+        public double Balance { get; private set; }
+
+        public BankAccount(string accountHolder, double initialBalance)
+        {
+            AccountHolder = accountHolder;
+            Balance = initialBalance;
+        }
+        public void TransferFunds()
+        {
+            Console.WriteLine("Enter the amount to transfer:");
+            double amount = double.Parse(Console.ReadLine());
+            if (amount > Balance)
+            {
+                throw (new InsufficientBalanceException("Transaction Failed: Insufficient balance."));
+            }
+            Balance -= amount;
+            Console.WriteLine("Transaction Successful! {0} transferred.", amount);
+            Console.WriteLine("Remaining Balance: {0}", Balance);
+
+        }
+        public void DisplayAccountDetails()
+        {
+            Console.WriteLine("Account Holder: " + AccountHolder);
+            Console.WriteLine("Available Balance: " + Balance);
+        }
+    }
+    class Exception
+    {
+        static void Main()
+        {
+
+            BankAccount account = new BankAccount("Keerthish", 10000);
+
+            account.DisplayAccountDetails();
+            try
+            {
+                account.TransferFunds();
+            }
+            catch(InsufficientBalanceException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            account.DisplayAccountDetails();
+
+        }
+    }
+}

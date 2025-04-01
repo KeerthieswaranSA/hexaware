@@ -1,0 +1,40 @@
+namespace ClassAssignment_3
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            length();
+            stringcomparison();
+            reverse_word();
+        }
+        static void length()
+        {
+            string a;
+            Console.WriteLine("Enter the string to find its length:");
+            a = Console.ReadLine();
+            Console.WriteLine("Length of the string " + a + " is " + a.Length);
+        }
+        static void reverse_word()
+        {
+            Console.WriteLine("Enter the string to reverse it:");
+            string a = Console.ReadLine();
+            char[] b = a.ToCharArray();
+            Array.Reverse(b);
+            Console.WriteLine("Reversed string is:"+ new string(b));
+
+        }
+        static void stringcomparison()
+        {
+            Console.WriteLine("Enter the words to compare");
+            Console.WriteLine("Enter first word");
+            string a= Console.ReadLine();
+            Console.WriteLine("Enter second word");
+            string b= Console.ReadLine();
+            if (a == b)
+                Console.WriteLine("Equal");
+            else
+                Console.WriteLine("Not Equal");
+        }
+    }
+}

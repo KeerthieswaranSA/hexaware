@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ClassAssignment_3
+{
+    interface IStudent
+    {
+        int StudentId { get; set; }
+        string Name { get; set; }
+        double Fees { get; set; }
+        void ShowDetails();
+    }
+    class Dayscholar : IStudent
+    {
+        public int StudentId { get; set; }
+        public string Name { get; set; }
+        public double Fees { get; set; }
+        public void ShowDetails() {
+            Console.WriteLine("Student Id: {0}", StudentId);
+            Console.WriteLine("Name: " + Name);
+            Console.WriteLine("Fees: "+ Fees);
+        }
+    }
+    class Resident : IStudent
+    {
+        public int StudentId { get; set; }
+        public string Name { get; set; }
+        public double Fees { get; set; }
+        public double accomudation_fees {  get; set; }
+        public void ShowDetails()
+        {
+            Console.WriteLine("Student Id: {0}", StudentId);
+            Console.WriteLine("Name: " + Name);
+            Console.WriteLine("Fees: " + Fees + " Accomudation Fees: "+accomudation_fees);
+            Console.WriteLine("Total Fees: "+(Fees+accomudation_fees));
+        }
+    }
+    class Student_Interface
+    {
+        static void Main(string[] args)
+        {
+            Dayscholar d = new Dayscholar();
+            d.StudentId = 101;
+            d.Name = "Keerthish";
+            d.Fees = 50000;
+            d.ShowDetails();
+            Console.WriteLine("=====================");
+            Resident r = new Resident();
+            r.Name = "Eswar";
+            r.StudentId = 105;
+            r.Fees = d.Fees;
+            r.accomudation_fees = 5000;
+            r.ShowDetails();
+
+        }
+    }
+   
+}
