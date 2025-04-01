@@ -1,0 +1,64 @@
+namespace Class_Assignment_3
+{
+    class Employee
+    {
+        protected int Id;
+        protected string Name;
+        protected DateTime Dob;
+        protected double Salary;
+        public Employee(int id, string name, DateTime dob, double salary)   
+        {
+            Id = id;
+            Name = name;
+            Dob = dob;
+            Salary = salary;
+        }
+        public virtual double computesalary()
+        { 
+            return Salary;
+        }
+    }
+    class Manager : Employee
+    {
+        public double OnsiteAllowance;
+        public double Bonus;
+
+        public Manager(int id, string name, DateTime dob, double salary, double onsiteAllowance, double bonus)
+            : base(id, name, dob, salary)
+        {
+            OnsiteAllowance = onsiteAllowance;
+            Bonus = bonus;
+        }
+
+        public override double computesalary()
+        {
+            return Salary + OnsiteAllowance + Bonus;
+        }
+    }
+    class FunctionCounter
+    {
+        private static int count = 0;
+
+        public static void CountFunction()
+        {
+            count++;
+            Console.WriteLine("Function called {0} times", count);
+        }
+    }
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Employee emp = new Employee(1, "Ram", new DateTime(2000, 12, 12), 50000);
+            Console.WriteLine("Employee Salary:" + emp.computesalary());
+            Manager mgr = new Manager(2, "Sam", new DateTime(2000, 8, 15), 70000, 10000, 5000);
+            Console.WriteLine("Manager Salary:" + mgr.computesalary());
+	    Console.WriteLine("=================================================");
+            FunctionCounter.CountFunction();
+            FunctionCounter.CountFunction();
+            FunctionCounter.CountFunction();
+
+        }
+    }
+}
