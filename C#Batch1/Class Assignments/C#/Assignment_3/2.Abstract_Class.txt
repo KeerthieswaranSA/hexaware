@@ -1,0 +1,54 @@
+namespace Day5_Pratice
+{
+    abstract class Furniture
+    {
+        
+        protected string Color;
+        protected double Price;
+        public Furniture( string color, double price)
+        {
+            Color = color;
+            Price = price;
+        }
+        public abstract void DisplayDetails();
+    }
+    class Chair : Furniture
+    {
+        public int Legs;
+
+        public Chair( string color, double price, int legs) : base( color, price)
+        {
+            Legs = legs;
+        }
+
+        public override void DisplayDetails()
+        {
+            Console.WriteLine($"Chair - Color: {Color}, Price: {Price}, Legs: {Legs}");
+        }
+    }
+    class BookShelf : Furniture
+    {
+        public int Shelf;
+        public BookShelf(string color, double price, int shelf) : base(color, price)
+        {
+            Shelf = shelf;
+        }
+        public override void DisplayDetails()
+        {
+            Console.WriteLine($"Shelf - Color: {Color}, Price: {Price}, Shelf: {Shelf}");
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Chair ch = new Chair("brown",5000,4);
+            ch.DisplayDetails();
+            Console.WriteLine("===========");
+            BookShelf bs = new BookShelf("red",100000,5);
+            bs.DisplayDetails();
+
+        }
+    }
+}
+
