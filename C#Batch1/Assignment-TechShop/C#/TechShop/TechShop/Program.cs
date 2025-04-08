@@ -137,10 +137,10 @@ namespace TechShop
             //// Display the inventory
             // collection.DisplayInventory();
             //Console.WriteLine("============================================================================");
-             DatabaseConnectivity.getConnection();
-            DatabaseConnectivity databaseConnectivity = new DatabaseConnectivity();
+            // DatabaseConnectivity.getConnection();
+           // DatabaseConnectivity databaseConnectivity = new DatabaseConnectivity();
             //databaseConnectivity.RegisterCustomer();
-            databaseConnectivity.UpdateProduct();
+            //databaseConnectivity.UpdateProduct();
             //databaseConnectivity.PlaceOrder();
             //databaseConnectivity.TrackOrderStatus();
             //databaseConnectivity.ManageInventory();
