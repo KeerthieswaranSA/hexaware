@@ -159,7 +159,7 @@ namespace LoanMngement
                             }
                             else
                             {
-                                throw new InvalidLoanException($"❌ Loan with ID {loanId} not found.");
+                                throw new InvalidLoanException($"Loan with ID {loanId} not found.");
                                 return 0;
                             }
                         }
@@ -239,7 +239,7 @@ namespace LoanMngement
                         }
                         else
                         {
-                            throw new InvalidLoanException($"❌ Loan with ID {loanId} not found.");
+                            throw new InvalidLoanException($"Loan with ID {loanId} not found.");
                         }
                     }
                 }
