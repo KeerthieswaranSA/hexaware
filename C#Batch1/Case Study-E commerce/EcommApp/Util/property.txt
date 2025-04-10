@@ -1,0 +1,2 @@
+hostname= LAPTOP-53TIM3OI\SQLEXPRESS
+dbname= EcommerceApp
